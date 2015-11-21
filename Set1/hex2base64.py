@@ -1,4 +1,5 @@
 from bitstring import BitArray
+import sys
 
 b64e = {0:'A',1:'B',2:'C',3:'D',4:'E',5:'F',6:'G',7:'H',8:'I',9:'J',10:'K',\
 11:'L',12:'M',13:'N',14:'O',15:'P',16:'Q',17:'R',18:'S',19:'T',20:'U',21:'V',\
@@ -8,7 +9,8 @@ b64e = {0:'A',1:'B',2:'C',3:'D',4:'E',5:'F',6:'G',7:'H',8:'I',9:'J',10:'K',\
 55:'3',56:'4',57:'5',58:'6',59:'7',60:'8',61:'9',62:'+',63:'/'}
 
 
-inp =  '49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d'
+inpu =  '49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d'
+inp = sys.argv[1]
 out = 'SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t'
 
 x = bin(int(inp, base=16)).lstrip('0b')
@@ -25,3 +27,5 @@ while chomp <= len(x) :
   base64 = base64 + b64e.get(int(x[init:chomp], 2))
   init = chomp
   chomp += 6
+
+print base64
