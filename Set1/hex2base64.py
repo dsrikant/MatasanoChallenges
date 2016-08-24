@@ -22,7 +22,6 @@ chomp = 5
 base64 = ''
 
 # What if the number of bits is not divisible by 6?
-
 while chomp <= len(x) :
   base64 = base64 + b64e.get(int(x[init:chomp], 2))
   init = chomp
